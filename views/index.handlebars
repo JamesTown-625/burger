@@ -1,32 +1,18 @@
 <h1>Hamburgers!</h1>
 
-<h2>Burgers that have not yet been eaten!</h2>
+<h3>Eat the Burgers!</h3>
 
 <ul>
   {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
+    <li>
+       <p>ID: {{this.id}}</p>
+       <p>BURGER: {{this.burger_name}}</p>
+    </li>
   {{/each}}
 </ul>
 
-<h2>Burgers that have been eaten!</h2>
+<form action="/" method="POST">
+  <textarea type="text" name="burger"></textarea>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" burger_name="burger_name">
-  </div>
-
-  <button type="submit">Add Burger</button>
+  <button type="submit">Create</button>
 </form>
