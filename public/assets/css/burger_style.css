@@ -1,0 +1,18 @@
+body {
+	background-color: yellow;
+};
+
+#title {
+	text-align: center;
+}
+
+#newBurger {
+	margin-top: 15px;
+	margin-left: 300px;
+	min-width: 50%;
+	resize: none;
+}
+
+#createBurger {
+	margin-left: 300px;
+}

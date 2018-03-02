@@ -1,18 +1,42 @@
-<h1>Hamburgers!</h1>
+<div class="container">
+  
+    <h1 id="title">Welcome to Burger Town! Create a burger and eat it!</h1>
+      <form>
+        <textarea type="text" name="burger" id="newBurger"></textarea>
+        <button type="submit" id="createBurger" class="btn-danger btn-lg">Create</button>
+      </form>
+    
+    <div class="row">
+        
+        <div class="col-md-6">
+          
+          <h2>Menu of Burgers!</h1>
+            <ul>
+              {{#each burgers}}
+                {{#unless this.devoured}}
+                  <li>
+                      <p>ID: {{this.id}}</p>
+                      <p>BURGER: {{this.burger_name}}</p>
+                      <button id="eat" data-burgerId={{this.id}}>eat me</button>
+                  </li>
+      
+                {{/unless}}
+                  
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-6">
+          <h2>Devoured Burgers!</h1>
+          {{#each burgers}}
+          {{#if this.devoured}}
+              <p>ID: {{this.id}}</p>
+              <p>BURGER: {{this.burger_name}}</p>
+          {{/if}}
+          {{/each}}
+        </div>
+    </div>
+</div>
 
-<h3>Eat the Burgers!</h3>
 
-<ul>
-  {{#each burgers}}
-    <li>
-       <p>ID: {{this.id}}</p>
-       <p>BURGER: {{this.burger_name}}</p>
-    </li>
-  {{/each}}
-</ul>
 
-<form action="/" method="POST">
-  <textarea type="text" name="burger"></textarea>
 
-  <button type="submit">Create</button>
-</form>

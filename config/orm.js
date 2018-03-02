@@ -50,19 +50,12 @@ var orm = {
       cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
-
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+  create: function(burger_name, cb) {
+    var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES ('${burger_name}', false)`;
 
     console.log(queryString);
 
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
@@ -71,8 +64,8 @@ var orm = {
     });
   },
   // An example of objColVals would be {burger_name: Whopper, devoured: true}
-  update: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
+  update: function(table, values, condition, cb) {
+    var queryString = `UPDATE ${table} SET ${values} WHERE ${condition}`;
 
      
     console.log(queryString);
